@@ -169,6 +169,7 @@ export default function Home() {
           end: "center 45%",
           scrub: 1,
         },
+        immediateRender: false,
       });
 
       gsap.from(".manifesto-line", {
@@ -181,6 +182,7 @@ export default function Home() {
           end: "center 42%",
           scrub: 1,
         },
+        immediateRender: false,
       });
 
       gsap.from(".bp-floor", {
@@ -196,6 +198,7 @@ export default function Home() {
           end: "bottom 55%",
           scrub: 1,
         },
+        immediateRender: false,
       });
 
       gsap.from(".bp-column, .bp-beam, .bp-core", {
@@ -209,6 +212,7 @@ export default function Home() {
           end: "bottom 48%",
           scrub: 1,
         },
+        immediateRender: false,
       });
 
       gsap.from(".bp-label", {
@@ -221,6 +225,7 @@ export default function Home() {
           end: "75% 55%",
           scrub: 1,
         },
+        immediateRender: false,
       });
 
       gsap.utils.toArray<HTMLElement>(".service-card").forEach((card, i) => {
@@ -234,6 +239,7 @@ export default function Home() {
             end: "top 68%",
             scrub: 1,
           },
+          immediateRender: false,
         });
       });
 
@@ -247,6 +253,7 @@ export default function Home() {
           end: "center 60%",
           scrub: 1,
         },
+        immediateRender: false,
       });
 
       gsap.to(".ticker-track", {
@@ -260,6 +267,10 @@ export default function Home() {
         },
       });
     }, root);
+
+    // Refresh ScrollTrigger after all animations are set up
+    // This ensures all elements are properly measured and recognized
+    ScrollTrigger.refresh();
 
     const interactive =
       root.current.querySelectorAll<HTMLElement>("[data-tilt]");
